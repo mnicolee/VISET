@@ -24,7 +24,7 @@ viset = "viset._modidx:d"
 [project.optional-dependencies]
 # matplotlib-venn + matplotlib-set-diagrams are only used by the Introduction (index.ipynb)
 # to draw its explanatory figures; the docs build (and CI) install them via .[dev]
-dev = ['nbdev==3.3.1', 'matplotlib-venn', 'matplotlib-set-diagrams']
+dev = ['nbdev==3.3.1', 'nbformat', 'matplotlib-venn', 'matplotlib-set-diagrams']
 
 [tool.setuptools.dynamic]
 version = {attr = "viset.__version__"}
