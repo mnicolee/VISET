@@ -15,3 +15,11 @@ jobs:
           pip install -e ".[dev]" "pandas<3"
       - name: Run tests
         run: nbdev-test
+      - name: Check notebooks and library are in sync
+        run: |
+          nbdev-export
+          if [ -n "$(git status --porcelain -uno)" ]; then
+            echo "::error::Notebooks and library are out of sync. Run nbdev-export locally and commit the updated .py files."
+            git diff
+            exit 1
+          fi
