@@ -54,9 +54,12 @@ def _outer_pos(outlines, labels, pad):
 
 def eunoia_venn_interactive(dfs, colors, style="round", title="", opacity=0.5, count_size=14,
                             count_color=None, title_size=20, name_size=16, width=760, height=680,
-                            show_counts=True, hover_size=13, hit_size=34, save_path=None):
+                            show_counts=True, hover_size=13, hit_size=34, seed=0, loss=None, save_path=None):
     # style: "round" -> circle (2 sets) / ellipse (3 sets); "box" -> square (2 sets) / rectangle (3 sets)
     # hover any region to list its members; counts are shown in place and set names sit outside each shape
+    # seed: fixes eunoia's layout so the same data always draws the same diagram (eunoia is otherwise random).
+    # loss: eunoia's fit objective. None (default) uses "max_absolute" for rectangles, which stops it
+    #       drawing an overlap between sets that share nothing; every other shape keeps eunoia's own default.
     labels = [d.columns[0] for d in dfs]
     lists = [d.iloc[:, 0].tolist() for d in dfs]
     sets = [set(l) for l in lists]
@@ -67,7 +70,9 @@ def eunoia_venn_interactive(dfs, colors, style="round", title="", opacity=0.5, c
         colors = [pal[k % len(pal)] for k in range(n)]
     rgb = [mpl.colors.to_rgb(c) for c in colors]
     shape = {"round": "ellipse" if n == 3 else "circle", "box": "rectangle" if n == 3 else "square"}[style]
-    fit = eu.euler({labels[i]: lists[i] for i in range(n)}, shape=shape)
+    fit_loss = loss if loss is not None else ("max_absolute" if shape == "rectangle" else None)
+    fit = eu.euler({labels[i]: lists[i] for i in range(n)}, shape=shape, seed=seed,
+                   **({} if fit_loss is None else {"loss": fit_loss}))
     rp = fit.plot_data["region_pieces"]
     outlines = fit.plot_data["shape_outlines"]
     anchors = fit.plot_data["region_anchors"]

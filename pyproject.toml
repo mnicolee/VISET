@@ -12,6 +12,11 @@ license = {text = "MIT"}
 authors = [{name = "Nicole Lee", email = "lnicole8282@gmail.com"}]
 keywords = ['venn', 'euler', 'upset', 'set-visualization', 'proteomics', 'nbdev']
 classifiers = ["Natural Language :: English", "Intended Audience :: Developers", "Development Status :: 3 - Alpha", "Programming Language :: Python :: 3", "Programming Language :: Python :: 3 :: Only"]
+# NOTE: 'upsetplot' is deliberately left unpinned here even though its only PyPI release
+# (0.9.0, Dec 2023) is broken under numpy>=2.4. The fix lives in an unmerged upstream PR,
+# and a direct git URL in this list would make the project unpublishable to PyPI, which
+# rejects direct-URL dependencies. CI installs the fixed branch explicitly instead — see
+# .github/workflows/test.yaml and TODO.md.
 dependencies = ['eunoia', 'matplotlib', 'plotly', 'pandas>=2.2,<3', 'numpy', 'scipy', 'upsetplot']
 
 [project.urls]
