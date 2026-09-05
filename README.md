@@ -26,7 +26,7 @@ def L(name, fname): return load(db + fname, "Gene names", name)
 flx = L("Fluoxetine", "1. FLUOXETINE_sample.csv")
 ibu = L("Ibuprofen", "2. IBUPROFEN_sample.csv")
 ace = L("Acetaminophen", "3. ACETAMINOPHEN_sample.csv")
-eunoia_venn([flx, ibu, ace], colors=["#3a7ca5", "#e08a3c", "#3c8c57"], style="round", title="", figsize=(8.5, 7.5), margin=0.06)
+eunoia_venn([flx, ibu, ace], colors=["#3a7ca5", "#e08a3c", "#3c8c57"], style="round", title="", figsize=(8.5, 7.5), margin=0.06, seed=0)
 ```
 
 </details>

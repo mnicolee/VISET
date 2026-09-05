@@ -126,7 +126,7 @@ def _outer_labels(outlines, labels, pad):
 def eunoia_venn(dfs, colors, style="round", fontsize=None, inner_label_size=None, outer_label_size=None,
                 title_size=None, font="Inter", fontcolor="black", count_color=None, title="",
                 num_cols=None, gutter=2, margin=0.03, min_fontsize=6, max_fontsize=40,
-                grid=380, seed=0, figsize=None, save_path=None):
+                grid=380, seed=0, loss=None, figsize=None, save_path=None):
     # style: "round" -> circle (2 sets) / ellipse (3 sets); "box" -> square (2 sets) / rectangle (3 sets)
     # colors: a list of colors, or the name of a matplotlib colormap (e.g. "Dark2")
     # For each region VISET grows a box outward from the region's deepest point until each side hits the
@@ -135,6 +135,7 @@ def eunoia_venn(dfs, colors, style="round", fontsize=None, inner_label_size=None
     # fraction kept clear inside that box.
     # num_cols: force a fixed column count; None (default) searches 1..8 columns and keeps the largest font.
     # seed: fixes eunoia's layout so the same data always draws the same diagram (eunoia is otherwise random).
+    # loss: eunoia's fit objective. None (default) keeps eunoia's own default (needs eunoia >= 0.6.0).
     # font: title and set-label typeface only; member lists and counts stay monospace so their columns align.
     labels = [d.columns[0] for d in dfs]
     lists = [d.iloc[:, 0].tolist() for d in dfs]
@@ -153,7 +154,9 @@ def eunoia_venn(dfs, colors, style="round", fontsize=None, inner_label_size=None
 
     fig = plt.figure(figsize=figsize if figsize else ((12, 12) if n == 3 else (12, 10)))
     ax = plt.gca()
-    fit = eu.euler({labels[i]: lists[i] for i in range(n)}, shape=shape, seed=seed)
+    fit_loss = loss
+    fit = eu.euler({labels[i]: lists[i] for i in range(n)}, shape=shape, seed=seed,
+                   **({} if fit_loss is None else {"loss": fit_loss}))
     fit.plot(ax=ax, colors={labels[i]: colors[i] for i in range(n)}, labels=False, quantities=False, legend=False)
     outlines = fit.plot_data["shape_outlines"]
     allx = [p[0] for o in outlines.values() for p in o]
