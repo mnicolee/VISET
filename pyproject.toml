@@ -20,8 +20,8 @@ classifiers = ["Natural Language :: English", "Intended Audience :: Developers",
 dependencies = ['eunoia>=0.6.0', 'matplotlib', 'plotly', 'pandas>=2.2,<3', 'numpy', 'scipy', 'upsetplot']
 
 [project.urls]
-Repository = "https://github.com/lnicole08/VISET"
-Documentation = "https://lnicole08.github.io/VISET"
+Repository = "https://github.com/mnicolee/VISET"
+Documentation = "https://mnicolee.github.io/VISET"
 
 [project.entry-points.nbdev]
 viset = "viset._modidx:d"

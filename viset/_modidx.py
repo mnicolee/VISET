@@ -2,8 +2,8 @@
 
 d = { 'settings': { 'branch': 'main',
                 'doc_baseurl': '/VISET',
-                'doc_host': 'https://lnicole08.github.io',
-                'git_url': 'https://github.com/lnicole08/VISET',
+                'doc_host': 'https://mnicolee.github.io',
+                'git_url': 'https://github.com/mnicolee/VISET',
                 'lib_path': 'viset'},
   'syms': { 'viset.core': {'viset.core.load': ('core.html#load', 'viset/core.py')},
             'viset.upset': {'viset.upset.upset': ('upset.html#upset', 'viset/upset.py')},

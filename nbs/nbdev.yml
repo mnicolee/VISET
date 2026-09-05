@@ -3,7 +3,7 @@ project:
 
 website:
   title: "VISET"
-  site-url: "https://lnicole08.github.io/VISET"
+  site-url: "https://mnicolee.github.io/VISET"
   description: "Visual Itemized SET diagrams: area-proportional Venn/Euler and UpSet plots with itemised member labels, built on eunoia."
   repo-branch: main
-  repo-url: "https://github.com/lnicole08/VISET"
+  repo-url: "https://github.com/mnicolee/VISET"

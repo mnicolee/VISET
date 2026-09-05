@@ -13,7 +13,7 @@ a seed - so both static and interactive re-randomise every run.
 **Plan:** delete the copied cells there and import from VISET instead. No PyPI
 needed - either an editable install (`pip install -e ../VISET`, updates are
 instant) or a `requirements.txt` line
-`viset @ git+https://github.com/lnicole08/VISET.git@main`, pinned to a tag when
+`viset @ git+https://github.com/mnicolee/VISET.git@main`, pinned to a tag when
 figures must stay fixed.
 
 **Gotchas:** `pip install -U` won't re-fetch a git URL unless `__version__` is

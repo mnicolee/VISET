@@ -2,9 +2,9 @@
 
 > **Vis**ual **I**temized **SET** diagrams: area-proportional Venn/Euler and UpSet plots that print the **member names** inside each region, in Python.
 
-**📖 Docs & interactive figures: https://lnicole08.github.io/VISET**
+**📖 Docs & interactive figures: https://mnicolee.github.io/VISET**
 
-Venn/Euler diagrams read best for **2 to 3 sets**; **UpSet** takes over when there are more. Below, both are drawn on drug-target sets as static (Matplotlib) figures — every region or bar lists the actual genes. When an intersection is too small to print its members legibly, reach for the **interactive** (Plotly) versions on the [documentation site](https://lnicole08.github.io/VISET) and hover the region to read them.
+Venn/Euler diagrams read best for **2 to 3 sets**; **UpSet** takes over when there are more. Below, both are drawn on drug-target sets as static (Matplotlib) figures — every region or bar lists the actual genes. When an intersection is too small to print its members legibly, reach for the **interactive** (Plotly) versions on the [documentation site](https://mnicolee.github.io/VISET) and hover the region to read them.
 
 ## Venn / Euler (three drugs)
 
@@ -64,4 +64,4 @@ upset({"Ibuprofen": ibu, "Acetaminophen": ace, "Diclofenac": dic, "Indomethacin"
 
 ## Learn more
 
-Want the reasoning behind all this? See [State of current set diagrams](https://lnicole08.github.io/VISET/state_of_set_diagrams.html) for the existing tools and their gaps, and the [Introduction](https://lnicole08.github.io/VISET/introduction.html) to install VISET and run it on your own data. Full-page interactive versions: [Venn](https://lnicole08.github.io/VISET/venn_interactive.html) and [UpSet](https://lnicole08.github.io/VISET/upset_interactive.html).
+Want the reasoning behind all this? See [State of current set diagrams](https://mnicolee.github.io/VISET/state_of_set_diagrams.html) for the existing tools and their gaps, and the [Introduction](https://mnicolee.github.io/VISET/introduction.html) to install VISET and run it on your own data. Full-page interactive versions: [Venn](https://mnicolee.github.io/VISET/venn_interactive.html) and [UpSet](https://mnicolee.github.io/VISET/upset_interactive.html).
