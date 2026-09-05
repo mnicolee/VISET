@@ -17,7 +17,7 @@ classifiers = ["Natural Language :: English", "Intended Audience :: Developers",
 # and a direct git URL in this list would make the project unpublishable to PyPI, which
 # rejects direct-URL dependencies. CI installs the fixed branch explicitly instead — see
 # .github/workflows/test.yaml and TODO.md.
-dependencies = ['eunoia', 'matplotlib', 'plotly', 'pandas>=2.2,<3', 'numpy', 'scipy', 'upsetplot']
+dependencies = ['eunoia>=0.6.0', 'matplotlib', 'plotly', 'pandas>=2.2,<3', 'numpy', 'scipy', 'upsetplot']
 
 [project.urls]
 Repository = "https://github.com/lnicole08/VISET"

@@ -135,8 +135,7 @@ def eunoia_venn(dfs, colors, style="round", fontsize=None, inner_label_size=None
     # fraction kept clear inside that box.
     # num_cols: force a fixed column count; None (default) searches 1..8 columns and keeps the largest font.
     # seed: fixes eunoia's layout so the same data always draws the same diagram (eunoia is otherwise random).
-    # loss: eunoia's fit objective. None (default) uses "max_absolute" for rectangles, which stops it
-    #       drawing an overlap between sets that share nothing; every other shape keeps eunoia's own default.
+    # loss: eunoia's fit objective. None (default) keeps eunoia's own default (needs eunoia >= 0.6.0).
     # font: title and set-label typeface only; member lists and counts stay monospace so their columns align.
     labels = [d.columns[0] for d in dfs]
     lists = [d.iloc[:, 0].tolist() for d in dfs]
@@ -155,7 +154,7 @@ def eunoia_venn(dfs, colors, style="round", fontsize=None, inner_label_size=None
 
     fig = plt.figure(figsize=figsize if figsize else ((12, 12) if n == 3 else (12, 10)))
     ax = plt.gca()
-    fit_loss = loss if loss is not None else ("max_absolute" if shape == "rectangle" else None)
+    fit_loss = loss
     fit = eu.euler({labels[i]: lists[i] for i in range(n)}, shape=shape, seed=seed,
                    **({} if fit_loss is None else {"loss": fit_loss}))
     fit.plot(ax=ax, colors={labels[i]: colors[i] for i in range(n)}, labels=False, quantities=False, legend=False)

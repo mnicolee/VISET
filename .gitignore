@@ -47,3 +47,9 @@ wheels/
 
 # nbdev
 _docs/
+
+# cached side-by-side eunoia installs used by repro/eunoia_versions.py
+repro/.eunoia_versions/
+
+# repro/ is scratch: issue reproductions, comparison scripts and sample figures
+repro/
