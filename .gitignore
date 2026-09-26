@@ -48,8 +48,7 @@ wheels/
 # nbdev
 _docs/
 
-# cached side-by-side eunoia installs used by eunoia/eunoia_versions.py
-eunoia/.eunoia_versions/
+# cached side-by-side eunoia installs used by error_tracking/eunoia_versions.py
+error_tracking/.eunoia_versions/
 
-# eunoia/ is scratch: issue reproductions, comparison scripts and sample figures
-eunoia/
+# unpublished lab data: keep local only

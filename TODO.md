@@ -1,10 +1,10 @@
 # TODO / Known Issues
 
-## Let Mass-spec-BioID consume VISET instead of copying it
+## Let the downstream analysis repo consume VISET instead of copying it
 
 **Status:** open.
 
-`Mass-spec-BioID` re-defines `eunoia_venn`, `eunoia_venn_interactive` and the
+The downstream analysis repo re-defines `eunoia_venn`, `eunoia_venn_interactive` and the
 upset plotters inside its notebooks, so VISET fixes never reach it. Its copies
 are an older generation (helpers `_pole` / `_perim` / `_fit_box` vs VISET's
 `_max_font_rect` / `_center_rect`), and none of its three `eu.euler` calls pass
@@ -18,6 +18,6 @@ figures must stay fixed.
 
 **Gotchas:** `pip install -U` won't re-fetch a git URL unless `__version__` is
 bumped; the copies have diverged, so figures need eyeballing after the swap; and
-`upsetplot` 0.9.0 on PyPI is still broken under numpy>=2.4, so BioID has to
+`upsetplot` 0.9.0 on PyPI is still broken under numpy>=2.4, so that repo has to
 install the fixed fork ([UpSetPlot PR #302](https://github.com/jnothman/UpSetPlot/pull/302))
 the same way VISET's CI does.
